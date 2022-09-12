@@ -5,6 +5,7 @@ import Head from 'next/head';
 import PropTypes from 'prop-types';
 import createEmotionCache from '../components/createEmotionCache';
 import theme from '../components/theme';
+import '../styles/global.css';
 
 // Client-side cache shared for the whole session
 // of the user in the browser.

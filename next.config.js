@@ -1,11 +1,15 @@
+const path = require('path');
 /** @type {import('next').NextConfig} */
-const withSass = require('@zeit/next-sass');
-module.exports = withSass();
-
 const nextConfig = {
     reactStrictMode: true,
-    swcMinify: true
+    images: {
+        domains: ['i.pravatar.cc']
+    },
+    swcMinify: true,
+    webpack: config => {
+        config.resolve.modules.push(path.resolve('./'));
+        return config;
+    }
 };
 
-// eslint-disable-next-line no-undef
 module.exports = nextConfig;

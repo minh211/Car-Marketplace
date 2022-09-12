@@ -23,7 +23,7 @@
     },
     "plugins": ["react"],
     "rules": {
-        "arrow-body-style": ["error", "always"],
+        "react/display-name": [false],
         "react/function-component-definition": [
             2,
             {

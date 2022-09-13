@@ -1,3 +1,28 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    padding: 0px !important;
+}
+
+@layer components {
+    .card-item {
+        filter: drop-shadow(0px 0px 1px rgba(48, 49, 51, 0.05))
+            drop-shadow(0px 8px 16px rgba(48, 49, 51, 0.1));
+        border-radius: 5px;
+        border: 1px solid #e3e3e3;
+        overflow: hidden;
+        margin-bottom: 24px;
+    }
+    .box-image {
+        border-bottom: 1px solid #e3e3e3;
+    }
+    .content-card {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(281px, 1fr));
+        grid-template-rows: auto;
+        column-gap: 40px;
+        row-gap: 0px;
+    }
+}

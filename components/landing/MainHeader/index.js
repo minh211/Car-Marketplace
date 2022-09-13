@@ -9,7 +9,7 @@ const MainHeader = () => {
                 <Link href="/new-cars">
                     <a className="mx-[23px] hover:text-[#999999]">New Cars</a>
                 </Link>
-                <Link href="/aaaaaaaaa">
+                <Link href="/used-cars">
                     <a className="mx-[23px] hover:text-[#999999]">Used Cars</a>
                 </Link>
                 <Link href="/reviews">

@@ -20,7 +20,7 @@ const CardItem = ({
                     {name}
                 </div>
                 <div className="text-[16px] font-[400] leading-[24px] mb-[8px] flex items-center">
-                     {POA ? 'POA' : 'From'}
+                    {POA ? 'POA' : 'From'}
                     <span className="text-[#0F5EDD] font-[600] ml-[6px]">
                         {price}
                     </span>

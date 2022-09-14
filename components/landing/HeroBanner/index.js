@@ -1,5 +1,5 @@
 import { Banner } from 'assets/images';
-const index = () => {
+const HeroBanner = () => {
     return (
         <div className="relative">
             <div className="absolute w-[100%] h-[100%] py-[97px] px-[108px] font-[700] text-[60px] text-white">
@@ -15,4 +15,4 @@ const index = () => {
     );
 };
 
-export default index;
+export default HeroBanner;

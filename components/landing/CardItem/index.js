@@ -5,6 +5,7 @@ const CardItem = ({
     priceOfMonth,
     variants,
     withCOE,
+    POA,
     brand,
     image,
     imgBrand
@@ -19,7 +20,7 @@ const CardItem = ({
                     {name}
                 </div>
                 <div className="text-[16px] font-[400] leading-[24px] mb-[8px] flex items-center">
-                    From
+                     {POA ? 'POA' : 'From'}
                     <span className="text-[#0F5EDD] font-[600] ml-[6px]">
                         {price}
                     </span>
@@ -28,7 +29,7 @@ const CardItem = ({
                     </span>
                 </div>
                 <div className=" text-[#5F5F5F] mb-[16px]">
-                    {variants} variants {withCOE ? '| with COE' : ''}
+                    {variants} variant{withCOE ? 's | with COE' : ''}
                 </div>
                 <div className="mb-[8px] flex items-center">
                     <img

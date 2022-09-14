@@ -5,7 +5,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import { useState } from 'react';
 
-export default function SearchSection() {
+const SearchSection = () => {
     const [carType, setCarType] = useState();
     const [priceRange, setPriceRange] = useState();
     const [vehicleType, setVehicleType] = useState();
@@ -148,4 +148,5 @@ export default function SearchSection() {
             </div>
         </div>
     );
-}
+};
+export default SearchSection;

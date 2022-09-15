@@ -13,6 +13,7 @@ import {
     Car7
 } from 'assets/images';
 import React from 'react';
+import ScrollContainer from 'react-indiana-drag-scroll';
 import CardItem from '../CardItem';
 
 const dummyDataCar = [
@@ -97,30 +98,49 @@ const dummyDataCar = [
 
 const ProductSection = () => {
     return (
-        <div className="py-[160px] px-[60px] bg-[#fff]">
-            <div className="content-card">
-                <div className="card-item">
-                    <div className="w-full h-full overflow-hidden">
-                        <img
-                            src={Advertising.src}
-                            alt="Advertising"
-                            className=" object-cover absolute w-full h-full"
-                        />
+        <>
+            <div className="py-[160px] px-[60px] bg-[#fff] sm:hidden">
+                <div className="content-card">
+                    <div className="card-item">
+                        <div className="w-full h-full overflow-hidden">
+                            <img
+                                src={Advertising.src}
+                                alt="Advertising"
+                                className=" object-cover absolute w-full h-full"
+                            />
+                        </div>
                     </div>
+                    {dummyDataCar.map(item => (
+                        <CardItem key={item.id} {...item} />
+                    ))}
                 </div>
-                {dummyDataCar.map(item => (
-                    <CardItem key={item.id} {...item} />
-                ))}
+                <div className="flex justify-center">
+                    <Button
+                        variant="outlined"
+                        className="text-[#EE1B24] text-[16px] leading-[24px] px-[16px] py-[8px] !border-[#EE1B24] normal-case"
+                    >
+                        View more new cars
+                    </Button>
+                </div>
             </div>
-            <div className="flex justify-center">
-                <Button
-                    variant="outlined"
-                    className="text-[#EE1B24] text-[16px] leading-[24px] px-[16px] py-[8px] !border-[#EE1B24] normal-case"
-                >
-                    View more new cars
-                </Button>
+            <div className="lg:hidden mt-[48px]">
+                <ScrollContainer className="scroll-container">
+                    <div className="flex flex-nowrap w-[max-content] gap-[40px] px-[10px]">
+                        {dummyDataCar.map(item => (
+                            <CardItem key={item.id} {...item} />
+                        ))}
+                    </div>
+                </ScrollContainer>
+                <div className="text-right mr-[13px]">
+                    <Button
+                        variant="outlined"
+                        className="text-[#EE1B24] text-[16px] leading-[24px] px-[16px] py-[8px] !border-[#EE1B24] normal-case mb-[60px] mr-[0]"
+                    >
+                        View more new cars
+                    </Button>
+                </div>
             </div>
-        </div>
+        </>
     );
 };
 

@@ -27,14 +27,14 @@ const productWorks = [
 
 const ProductIntro = () => {
     return (
-        <div className="bg-[#232323] text-white text-center py-[22px] px-[90px]">
-            <div className="text-[#EE1B24] text-[48px] leading-[72px] font-[700] mb-[7px]">
+        <div className="bg-[#232323] text-white text-center py-[22px] px-[90px] sm:px-[35px]">
+            <div className="text-[#EE1B24] text-[48px] leading-[72px] sm:text-[32px] sm:leading-[48px] font-[700] mb-[7px]">
                 How it works.
             </div>
-            <div className="text-[32px] leading-[48px] mb-[142px]">
+            <div className="text-[32px] leading-[48px] sm:text-[20px] sm:leading-[30px] mb-[142px] sm:mb-[32px]">
                 This is how our products works
             </div>
-            <div className="grid grid-cols-3 gap-[80px] mb-[70px]">
+            <div className="grid grid-cols-3 sm:grid-cols-1 gap-[80px] sm:gap-[40px] mb-[70px] sm:mb-[20px]">
                 {productWorks.map(item => (
                     <ProductItem key={item.id} {...item} />
                 ))}

@@ -3,20 +3,12 @@ import { createTheme } from '@mui/material/styles';
 
 // Create a theme instance.
 const theme = createTheme({
-    palette: {
-        primary: {
-            main: '#232323'
-        },
-        secondary: {
-            main: '#ffffff'
-        },
-        error: {
-            main: red.A400
-        },
-        button: {
-            main: '#EE1B24'
-        }
+    primary: '#232323',
+    secondary: '#ffffff',
+    errorMain: {
+        main: red.A400
     },
+    buttonMain: '#EE1B24',
     typography: {
         fontFamily: ['Poppins']
     }

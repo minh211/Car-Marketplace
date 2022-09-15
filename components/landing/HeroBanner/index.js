@@ -1,9 +1,9 @@
 import Button from '@mui/material/Button';
-import { Banner } from 'assets/images';
+import { Banner, SmBanner } from 'assets/images';
 const HeroBanner = () => {
     return (
-        <div className="relative">
-            <div className="absolute w-[100%] max-h-[529px] py-[97px] px-[108px] font-[700] text-[60px] text-white">
+        <div className="relative ">
+            <div className="absolute w-[100%] max-h-[529px] py-[97px] px-[108px] font-[700] text-[60px] text-white sm:hidden ">
                 Car Marketplace <br />
                 <div className="font-[400] text-lg text-[#E3E3E3] leading-[22px] mb-[32px]">
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit.
@@ -14,7 +14,16 @@ const HeroBanner = () => {
                     Get Started
                 </Button>
             </div>
-            <img src={Banner.src} alt="" className="w-full object-cover" />
+            <img
+                src={Banner.src}
+                alt=""
+                className="w-full object-cover sm:hidden"
+            />
+            <img
+                src={SmBanner.src}
+                alt=""
+                className="w-full object-cover lg:hidden"
+            />
         </div>
     );
 };

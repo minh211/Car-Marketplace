@@ -18,7 +18,7 @@ export default function Home() {
                 <title>Create Next App</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="bg-[black] min-h-[100vh]">
+            <div className="bg-[white] min-h-[100vh]">
                 <TopHeader />
                 <MainHeader />
                 <HeroBanner />

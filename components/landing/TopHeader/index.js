@@ -1,7 +1,7 @@
 import { EmailIcon, LocationIcon, PhoneIcon } from 'assets/icons';
 const TopHeader = () => {
     return (
-        <div className="bg-[#fff] px-[60px] py-[11px] flex justify-between font-[12px] items-center">
+        <div className="bg-[#fff] px-[60px] py-[11px] flex justify-between font-[12px] items-center sm:hidden">
             <div className="flex text-[12px] leading-[20px]">
                 <div className="flex py-[5px]">
                     <LocationIcon />

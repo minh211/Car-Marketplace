@@ -21,3 +21,5 @@ export { default as Payment1 } from './payment1.png';
 export { default as QBanner } from './question-banner.png';
 export { default as Work1 } from './work1.png';
 export { default as SmBanner } from './banner-sm.png';
+export { default as QBannerSm } from './question-banner-sm.png';
+

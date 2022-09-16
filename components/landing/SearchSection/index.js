@@ -30,7 +30,7 @@ const SearchSection = () => {
     const [priceRange1, setPriceRange1] = useState();
     const [priceRange2, setPriceRange2] = useState();
     const [vehicleType, setVehicleType] = useState();
-    const [active, setActive] = useState();
+    const [active, setActive] = useState({});
     const { bus1, bus2, bus3, bus4, bus5, bus6 } = checkedState;
     const handleCheckedChange = event => {
         setCheckedState({
@@ -79,7 +79,7 @@ const SearchSection = () => {
                         <FormControl
                             sx={{ m: 1, minWidth: 210 }}
                             className={`m-0 py-[20px] px-[40px] sm:items-center ${
-                                active === 'carType' ? 'bg-[#fff]' : ''
+                                active?.name === 'carType' ? 'bg-[#fff]' : ''
                             }`}
                         >
                             <div className="text-[16px] leading-[40px] font-[500]">
@@ -91,8 +91,12 @@ const SearchSection = () => {
                                 labelId="car-types"
                                 value={carType}
                                 onChange={handleChangeCarType}
-                                onOpen={() => setActive('carType')}
-                                onClose={() => setActive('')}
+                                onOpen={() =>
+                                    setActive({
+                                        name: 'carType'
+                                    })
+                                }
+                                onClose={() => setActive({})}
                                 renderValue={value => `${value}`}
                                 defaultValue="New Cars"
                                 className="h-[50px] !font-[14px]"
@@ -141,12 +145,11 @@ const SearchSection = () => {
                                 </MenuItem>
                             </Select>
                         </FormControl>
-                        <div className="border-[1px] border-dash border-[#F1F1F1] w-[100%] rounded-[20px]"></div>
-                        <div className="border-[3px] border-dash border-[#F1F1F1] h-[60px] rounded-[20px] sm:hidden" />
+                        <div className="border-dash bg-[#F1f1f1] border-[#F1F1F1] rounded-[20px] border-[3px] h-[60px] sm:h-0 sm:w-full sm:border-[1px] sm:round-[20px]"></div>
                         <FormControl
                             sx={{ m: 1, minWidth: 210 }}
-                            className={`m-0 py-[20px] px-[40px] sm:items-center ${
-                                active === 'priceRange' ? 'bg-[#fff]' : ''
+                            className={`m-0 py-[20px] px-[40px] sm:items-center  ${
+                                active?.name === 'priceRange' ? 'bg-[#fff]' : ''
                             }`}
                         >
                             <div className="text-[16px] leading-[40px] font-[500]">
@@ -156,8 +159,12 @@ const SearchSection = () => {
                                 displayEmpty
                                 id="price-range"
                                 labelId="price-range"
-                                onOpen={() => setActive('priceRange')}
-                                onClose={() => setActive('')}
+                                onOpen={() =>
+                                    setActive({
+                                        name: 'priceRange'
+                                    })
+                                }
+                                onClose={() => setActive({})}
                                 renderValue={value => `${value}`}
                                 defaultValue="$10,0000 - $100,0000"
                                 className="h-[50px] !font-[14px] rounded-[15px]"
@@ -171,81 +178,91 @@ const SearchSection = () => {
                                     }
                                 }}
                             >
-                                <div
-                                    className={
-                                        'mt-[24px] mb-[16px] mx-[24px] font-[600]'
-                                    }
-                                >
-                                    Price Range
-                                </div>
-                                <div
-                                    className={
-                                        'flex justify-center min-w-[400px] mt-[16px]'
-                                    }
-                                >
-                                    <MenuItem className={'gap-[10px]'}>
-                                        <FormControl>
-                                            <InputLabel htmlFor="component-outlined">
-                                                Min
-                                            </InputLabel>
-                                            <OutlinedInput
-                                                className={'max-w-[160px]'}
-                                                label="Min"
-                                                id="component-outlined"
-                                                defaultValue="S$ 20,000"
-                                                value={priceRange1}
-                                                onChange={
-                                                    handleChangePriceRange1
-                                                }
-                                            />
-                                        </FormControl>
-                                        <Divider
-                                            className={
-                                                'w-[8px] border-[#232323]'
-                                            }
-                                        />
-                                        <FormControl>
-                                            <InputLabel htmlFor="component-outlined">
-                                                Max
-                                            </InputLabel>
-                                            <OutlinedInput
-                                                className={'max-w-[160px]'}
-                                                label="Max"
-                                                id="component-outlined"
-                                                defaultValue="S$ 500,000"
-                                                value={priceRange2}
-                                                onChange={
-                                                    handleChangePriceRange2
-                                                }
-                                            />
-                                        </FormControl>
-                                    </MenuItem>
-                                </div>
-                                <Divider
-                                    className={
-                                        ' border-[#E3E3E3] flex items-center w-[352px] mx-[24px] mt-[24px]'
-                                    }
-                                />
-                                <div className="flex justify-between ml-[24px] my-[24px]">
-                                    <Button
-                                        className=" bg-transparent border-[none] text-black normal-case max-w-[73px] h-[40px] rounded-[5px]"
-                                        onClick={clearDataRange}
+                                <div className="sm:w-[343px]">
+                                    <div
+                                        className={
+                                            'mt-[24px] mb-[16px] mx-[24px] font-[600]'
+                                        }
                                     >
-                                        Clear
-                                    </Button>
-                                    <Button className="bg-[#EE1B24] hover:bg-[#94080e] text-white normal-case max-w-[73px] h-[40px] rounded-[5px] mx-[24px]">
-                                        Save
-                                    </Button>
+                                        Price Range
+                                    </div>
+                                    <div
+                                        className={
+                                            'flex justify-center min-w-[400px] mt-[16px] sm:!w-[343px]'
+                                        }
+                                    >
+                                        <MenuItem
+                                            className={
+                                                'gap-[10px] sm:mr-[50px]  sm:w-[343px]'
+                                            }
+                                        >
+                                            <FormControl>
+                                                <InputLabel htmlFor="component-outlined">
+                                                    Min
+                                                </InputLabel>
+                                                <OutlinedInput
+                                                    className={'max-w-[160px]'}
+                                                    label="Min"
+                                                    id="component-outlined"
+                                                    defaultValue="S$ 20,000"
+                                                    value={priceRange1}
+                                                    onChange={
+                                                        handleChangePriceRange1
+                                                    }
+                                                />
+                                            </FormControl>
+                                            <Divider
+                                                className={
+                                                    'w-[8px] border-[#232323]'
+                                                }
+                                            />
+                                            <FormControl>
+                                                <InputLabel htmlFor="component-outlined">
+                                                    Max
+                                                </InputLabel>
+                                                <OutlinedInput
+                                                    className={'max-w-[160px]'}
+                                                    label="Max"
+                                                    id="component-outlined"
+                                                    defaultValue="S$ 500,000"
+                                                    value={priceRange2}
+                                                    onChange={
+                                                        handleChangePriceRange2
+                                                    }
+                                                />
+                                            </FormControl>
+                                        </MenuItem>
+                                    </div>
+                                    <Divider
+                                        className={
+                                            ' border-[#E3E3E3] flex items-center w-[352px] mx-[24px] mt-[24px] sm:w-[300px]'
+                                        }
+                                    />
+                                    <div className="flex justify-between ml-[24px] my-[24px]">
+                                        <Button
+                                            className=" bg-transparent border-[none] text-black normal-case max-w-[73px] h-[40px] rounded-[5px]"
+                                            onClick={clearDataRange}
+                                        >
+                                            Clear
+                                        </Button>
+                                        <Button
+                                            className="bg-[#EE1B24] hover:bg-[#94080e] text-white normal-case max-w-[73px] h-[40px] rounded-[5px] mx-[24px]"
+                                            onClick={() => {
+                                                setActive({});
+                                            }}
+                                        >
+                                            Save
+                                        </Button>
+                                    </div>
                                 </div>
                             </Select>
                         </FormControl>
-                        <div className="border-[3px] border-dash border-[#F1F1F1] h-[60px] rounded-[20px] sm:hidden" />
-                        <div className="border-[1px] border-dash border-[#F1F1F1] w-[100%] rounded-[20px]"></div>
+                        <div className="border-dash bg-[#F1f1f1] border-[#F1F1F1] rounded-[20px] border-[3px] h-[60px] sm:h-0 sm:w-[100%] sm:border-[1px] sm:round-[20px]"></div>
                         <FormControl
                             sx={{ m: 1, minWidth: 210 }}
                             className="m-0 py-[20px] px-[40px] sm:items-center"
                         >
-                            <div className="text-[16px] leading-[40px] font-[500] ">
+                            <div className="text-[16px] leading-[40px] font-[500]">
                                 Vehicle Type
                             </div>
                             <Select
@@ -277,7 +294,7 @@ const SearchSection = () => {
                                 </FormLabel>
                                 <FormGroup
                                     className={
-                                        'grid grid-cols-3 min-w-[473px] mt-[16px]'
+                                        'grid grid-cols-3 min-w-[473px] mt-[16px] sm:grid-cols-2 sm:min-w-[323px]'
                                     }
                                 >
                                     <FormControlLabel
@@ -347,11 +364,7 @@ const SearchSection = () => {
                                         label="Bus3"
                                     />
                                 </FormGroup>
-                                <Divider
-                                    className={
-                                        ' border-[#E3E3E3] flex items-center w-[425px] mx-[24px] mt-[24px]'
-                                    }
-                                />
+                                <div className="border-dash bg-[#E3E3E3] border-[#E3E3E3] mx-auto mt-[10px] rounded-[20px] h-[1px] w-[425px] sm:h-0 sm:w-[100%] sm:border-[1px] sm:round-[20px]"></div>
                                 <div className="flex justify-between ml-[24px] my-[24px]">
                                     <Button
                                         className=" bg-transparent border-[none] text-black normal-case max-w-[73px] h-[40px] rounded-[5px]"

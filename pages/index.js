@@ -1,6 +1,6 @@
 /* eslint-disable react/function-component-definition */
 import Button from '@mui/material/Button';
-import { QBanner } from 'assets/images';
+import { QBanner, QBannerSm } from 'assets/images';
 import MainHeader from 'components/landing/MainHeader';
 import Head from 'next/head';
 import FeaturedSection from '../components/landing/FeaturedSection';
@@ -18,7 +18,7 @@ export default function Home() {
                 <title>Create Next App</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <div className="bg-[white] min-h-[100vh]">
+            <div className="bg-[white] min-h-[100vh] sm:overflow-hidden">
                 <TopHeader />
                 <MainHeader />
                 <HeroBanner />
@@ -27,21 +27,28 @@ export default function Home() {
                 <ProductIntro />
                 <FeaturedSection />
                 <div className="relative">
-                    <div className="absolute p-[80px]">
-                        <div className="font-[600] text-[76px] text-white w-[390px] mb-[18px]">
+                    <div className="absolute p-[80px] sm:px-[10px] sm:w-[410px]">
+                        <div className="font-[600] text-[76px] text-white w-[390px] mb-[18px] sm:w-[250px] sm:ml-[55px] sm:text-[48px] sm:text-center">
                             Questions about buying or renting?
                         </div>
-                        <Button className="w-[410px] h-[60px] bg-[#EE1B24] text-white rounded-[5px] normal-case">
-                            Ask Us
-                        </Button>
+                        <div className="sm:py-[106px]">
+                            <Button className="w-[410px] h-[60px] bg-[#EE1B24] text-white rounded-[5px] normal-case sm:w-[335px] sm:mx-[10px]">
+                                Ask Us
+                            </Button>
+                        </div>
                     </div>
                     <img
                         src={QBanner.src}
                         alt=""
-                        className="w-full max-h-[700px] object-cover"
+                        className="w-full max-h-[700px] object-cover sm:hidden"
+                    />
+                    <img
+                        src={QBannerSm.src}
+                        alt=""
+                        className="w-full max-h-[700px] object-cover lg:hidden"
                     />
                 </div>
-                <div className="bg-white pt-[80px]">
+                <div className="bg-white pt-[80px] sm:hidden">
                     <div className="bg-[#F1F1F1] py-[40px] px-[90px] text-[12px] leading-[20px] text-[#5F5F5F] font-[400]">
                         <div className="text-[16px] mb-[16px]">
                             UCARS - Revolutionizing The Online Car Marketplace

@@ -1,4 +1,3 @@
-
 # Car Marketplace
 
 Demo test dev, this project is still under development due to a lack of time - sincerely apologize for the inconvenience. Obviously, this project will be updated continuously until it finished.
@@ -14,16 +13,14 @@ To start this project run
   yarn dev
 ```
 
-
 ## Tech Stack
 
- NextJs, TailwindCSS
-
+NextJs, TailwindCSS
 
 ## Deployment
+
 Live URL
 https://carmarketplacetest.netlify.app/
-
 
 ## Feedback
 
